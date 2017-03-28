@@ -1,0 +1,8 @@
+!!! Font f_Menu uses a font (Century Gothic) not installed on this system. Font has NOT been regenerated.
+!!! Font f_SmallText uses a font (GeosansLight) not installed on this system. Font has NOT been regenerated.
+!!! Font f_Notice uses a font (advent-Bd2) not installed on this system. Font has NOT been regenerated.
+macOS icon ${options_dir}\mac\icons\icon512.png written out as 32-bit.
+game speed set to 60
+added compatibility script instance/instance_create.gml
+added compatibility script object/object_get_depth.gml
+added compatibility script __global_object_depths.gml
