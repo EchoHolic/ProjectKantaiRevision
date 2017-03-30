@@ -1,22 +1,25 @@
 //Generate Battle Results
 //Generate Fleet
 //Remember to assign values later
-ally_fleet[0,0]=instance_create(0,0,obj_ship);
-ally_fleet[0,1]=instance_create(0,0,obj_ship);
-ally_fleet[0,2]=instance_create(0,0,obj_ship);
-ally_fleet[0,3]=instance_create(0,0,obj_ship);
-ally_fleet[0,4]=instance_create(0,0,obj_ship);
-ally_fleet[0,5]=instance_create(0,0,obj_ship);
+layer_bar=layer_create(5);
+layer_ship=layer_create(10);
+layer_bar2=layer_create(4);
+ally_fleet[0,0]=instance_create_layer(0,0,layer_ship,obj_ship);
+ally_fleet[0,1]=instance_create_layer(0,0,layer_ship,obj_ship);
+ally_fleet[0,2]=instance_create_layer(0,0,layer_ship,obj_ship);
+ally_fleet[0,3]=instance_create_layer(0,0,layer_ship,obj_ship);
+ally_fleet[0,4]=instance_create_layer(0,0,layer_ship,obj_ship);
+ally_fleet[0,5]=instance_create_layer(0,0,layer_ship,obj_ship);
 ally_formation=0;
 ally_fleet_size=5;
 combined_fleet=false;
 
-enemy_fleet[0,0]=instance_create(0,0,obj_ship);
-enemy_fleet[0,1]=instance_create(0,0,obj_ship);
-enemy_fleet[0,2]=instance_create(0,0,obj_ship);
-enemy_fleet[0,3]=instance_create(0,0,obj_ship);
-enemy_fleet[0,4]=instance_create(0,0,obj_ship);
-enemy_fleet[0,5]=instance_create(0,0,obj_ship);
+enemy_fleet[0,0]=instance_create_layer(0,0,layer_ship,obj_ship);
+enemy_fleet[0,1]=instance_create_layer(0,0,layer_ship,obj_ship);
+enemy_fleet[0,2]=instance_create_layer(0,0,layer_ship,obj_ship);
+enemy_fleet[0,3]=instance_create_layer(0,0,layer_ship,obj_ship);
+enemy_fleet[0,4]=instance_create_layer(0,0,layer_ship,obj_ship);
+enemy_fleet[0,5]=instance_create_layer(0,0,layer_ship,obj_ship);
 enemy_formation=0;
 enemy_fleet_size=5;
 //LOS Detection Phase

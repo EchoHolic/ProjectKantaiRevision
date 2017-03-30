@@ -14,12 +14,12 @@ draw_text(4,448,string_hash_to_newline("Last Updated: "+date_time_string(GM_buil
 draw_set_halign(fa_right);
 draw_text(room_width-4,448,string_hash_to_newline("Ver 0.01 "+GM_version));
 draw_set_halign(fa_left);
-if((mouse_x<room_width/2) && (mouse_y>470 && mouse_y<540)){
+if((mouse_x<room_width/2) && (mouse_y>470 && mouse_y<540)&& !instance_exists(obj_namer)){
    draw_set_color(obj_saver.c_Bright_Blue);
 }
 draw_rectangle(0,470,room_width/2,540,false); //New Game
 draw_set_color(obj_saver.c_Navy_Blue);
-if((mouse_x>room_width/2) && (mouse_y>470 && mouse_y<540)){
+if((mouse_x>room_width/2) && (mouse_y>470 && mouse_y<540)&& !instance_exists(obj_namer)){
    draw_set_color(obj_saver.c_Bright_Blue);
 }
 draw_rectangle(room_width/2,470,room_width,540,false); //Continue

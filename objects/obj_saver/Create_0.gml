@@ -1,51 +1,51 @@
 //Proficiency Tables. Not accurate to the original.
-global.skill_fighter[0]=0;
-global.skill_fighter[1]=2;
-global.skill_fighter[2]=4;
-global.skill_fighter[3]=8;
-global.skill_fighter[4]=12;
-global.skill_fighter[5]=16;
-global.skill_fighter[6]=20;
-global.skill_fighter[7]=25;
+skill_fighter[0]=0;
+skill_fighter[1]=2;
+skill_fighter[2]=4;
+skill_fighter[3]=8;
+skill_fighter[4]=12;
+skill_fighter[5]=16;
+skill_fighter[6]=20;
+skill_fighter[7]=25;
 
-global.skill_bomber[0]=0;
-global.skill_bomber[1]=1;
-global.skill_bomber[2]=1;
-global.skill_bomber[3]=2;
-global.skill_bomber[4]=2;
-global.skill_bomber[5]=3;
-global.skill_bomber[6]=3;
-global.skill_bomber[7]=4;
+skill_bomber[0]=0;
+skill_bomber[1]=1;
+skill_bomber[2]=1;
+skill_bomber[3]=2;
+skill_bomber[4]=2;
+skill_bomber[5]=3;
+skill_bomber[6]=3;
+skill_bomber[7]=4;
 
-global.skill_seaplane[0]=0;
-global.skill_seaplane[1]=1;
-global.skill_seaplane[2]=2;
-global.skill_seaplane[3]=3;
-global.skill_seaplane[4]=4;
-global.skill_seaplane[5]=5;
-global.skill_seaplane[6]=6;
-global.skill_seaplane[7]=10;
+skill_seaplane[0]=0;
+skill_seaplane[1]=1;
+skill_seaplane[2]=2;
+skill_seaplane[3]=3;
+skill_seaplane[4]=4;
+skill_seaplane[5]=5;
+skill_seaplane[6]=6;
+skill_seaplane[7]=10;
 
 //AACI "Shot Down" Tables
-global.aaci_shot_down[0]=0;//No AACI
-global.aaci_shot_down[1]=7;
-global.aaci_shot_down[2]=6;
-global.aaci_shot_down[3]=4;
-global.aaci_shot_down[4]=6;
-global.aaci_shot_down[5]=4;
-global.aaci_shot_down[6]=4;
-global.aaci_shot_down[7]=3;
-global.aaci_shot_down[8]=4;
-global.aaci_shot_down[9]=2;
-global.aaci_shot_down[10]=8;
-global.aaci_shot_down[11]=6;
-global.aaci_shot_down[12]=3;
-global.aaci_shot_down[13]=2;
-global.aaci_shot_down[14]=4;
-global.aaci_shot_down[15]=3;
-global.aaci_shot_down[16]=4;
-global.aaci_shot_down[17]=2;
-global.aaci_shot_down[18]=2;
+aaci_shot_down[0]=0;//No AACI
+aaci_shot_down[1]=7;
+aaci_shot_down[2]=6;
+aaci_shot_down[3]=4;
+aaci_shot_down[4]=6;
+aaci_shot_down[5]=4;
+aaci_shot_down[6]=4;
+aaci_shot_down[7]=3;
+aaci_shot_down[8]=4;
+aaci_shot_down[9]=2;
+aaci_shot_down[10]=8;
+aaci_shot_down[11]=6;
+aaci_shot_down[12]=3;
+aaci_shot_down[13]=2;
+aaci_shot_down[14]=4;
+aaci_shot_down[15]=3;
+aaci_shot_down[16]=4;
+aaci_shot_down[17]=2;
+aaci_shot_down[18]=2;
 
 //Profile
 global.HQ_Level=1;
@@ -53,6 +53,7 @@ global.Name="";
 global.New_Game=false;
 global.Save_Exists=false;
 global.Move_Room=0;
+
 
 //Colors
 c_Navy_Blue=make_color_rgb(44,62,80);
