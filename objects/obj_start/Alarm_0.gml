@@ -4,4 +4,3 @@ if(global.New_Game==true){
 else{
    room_goto(rm_base);
 }
-

@@ -9,7 +9,8 @@
         "38822967-a2fe-4b1a-94a5-4f8d9670a153",
         "3b3e8e63-ee78-4f6a-b853-ab92d410ff0e",
         "08239fa2-1c9d-44dd-8623-061eaa7f09c6",
-        "21df067b-aa76-4b13-bc8f-1c0c21e8d1e2"
+        "21df067b-aa76-4b13-bc8f-1c0c21e8d1e2",
+        "506c8c60-108f-4c69-ae66-ccb04501f5b3"
     ],
     "filterType": "GMSprite",
     "folderName": "Starter UI",

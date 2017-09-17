@@ -60,6 +60,7 @@ c_Navy_Blue=make_color_rgb(44,62,80);
 c_Pale_Blue=make_color_rgb(67,84,100);
 c_Chalk_White=make_color_rgb(236,240,241);
 c_Bright_Blue=make_color_rgb(41,128,185);
+c_Pale_Bright_Blue=make_color_rgb(100,174,224);
 c_Dark_Orange=make_color_rgb(230,76,59);
 
 //Init Variables

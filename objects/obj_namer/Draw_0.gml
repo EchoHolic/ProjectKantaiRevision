@@ -30,13 +30,13 @@ draw_set_color(obj_saver.c_Pale_Blue);
 draw_rectangle(316,262+alarm[0],644,310-alarm[0],false); //Name Box
 
 draw_set_color(obj_saver.c_Chalk_White);
-draw_set_font(f_Menu);
+draw_set_font(f_Namer);
 if string_length(keyboard_string) > 16
 {
    keyboard_string = string_copy(keyboard_string, 1, 16);
 }
 draw_set_halign(fa_center);
-draw_text(room_width/2,266,string_hash_to_newline(keyboard_string+"|"));
+draw_text(room_width/2,270,string_hash_to_newline(keyboard_string+"|"));
 draw_set_halign(fa_left);
 
 draw_sprite(spr_menu_name,0,room_width/2,214);

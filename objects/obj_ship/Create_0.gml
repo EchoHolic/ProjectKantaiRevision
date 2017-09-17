@@ -1,9 +1,14 @@
+api_id=0;
+api_sortno=0;
+jname="";
+yname="";
+ename="";
+
 maxhp=0;
 currhp=0;
 level=1;
 
-jname="";
-ename="";
+
 class="";
 remodel=0;
 ship_type=0;
@@ -68,36 +73,3 @@ Boss Type
 
 Fleet No - Which fleet if combined
 */
-
-/* */
-maxhp=80;
-currhp=80;
-level=1;
-
-jname="長門";
-ename="Nagato";
-class="Nagato";
-ship_type=3;
-fleetno=0;
-
-base_firepower=99;
-base_torpedo=0;
-base_antiair=89;
-base_armor=89;
-base_luck=20;
-base_los=39;
-base_evasion=49;
-base_range=3;
-base_speed=0;
-
-aircraft[0]=3;
-aircraft[1]=3;
-aircraft[2]=3;
-aircraft[3]=3;
-aircraft_m[0]=3;
-aircraft_m[1]=3;
-aircraft_m[2]=3;
-aircraft_m[3]=3;
-
-/* */
-/*  */

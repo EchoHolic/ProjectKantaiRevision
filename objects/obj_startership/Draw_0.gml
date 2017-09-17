@@ -7,9 +7,6 @@ else{
 i=0
 }
 draw_sprite(spr_starter_logo,0,50,25);
-draw_set_color(obj_saver.c_Navy_Blue);
-draw_rectangle(48,196,538,199,false);
-draw_rectangle(48,336,538,339,false);
 switch(selection){
    case 0:draw_sprite_ext(ship_011_main,0,500,10,0.8,0.8,0,c_white,1);
    break;
@@ -24,8 +21,12 @@ switch(selection){
    case 5:draw_sprite_ext(ship_210_main,0,450,0,0.8,0.8,0,c_white,1);
    break;
 }
+draw_set_color(obj_saver.c_Navy_Blue);
+draw_rectangle(48,196,538,199,false);
+draw_rectangle(48,336,538,339,false);
 draw_sprite(spr_starter_description,selection,30,142);
 draw_sprite(spr_starter_dialogue,selection,344,50);
+draw_sprite(spr_starter_progression,selection,304,391);
 for(ii=0;ii<=4;ii++){
    draw_sprite(spr_starter_check,0,room_width/2-62+(ii*25),446);
    if(ii==selection){
