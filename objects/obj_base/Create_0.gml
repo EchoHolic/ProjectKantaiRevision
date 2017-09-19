@@ -7,4 +7,3 @@ instance_create_layer(315,28,HUD_Button_Layer,obj_btnLibrary);
 instance_create_layer(444,28,HUD_Button_Layer,obj_btnItems);
 instance_create_layer(561,28,HUD_Button_Layer,obj_btnQuests);
 
-//Parse Ship CSV

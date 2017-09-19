@@ -66,14 +66,14 @@ c_Dark_Orange=make_color_rgb(230,76,59);
 //Init Variables
 i=0;
 iii=0;
-repeat(100){
+repeat(100){ //Player Ships
    list_ship[i]=0;
    i++;
 }
 list_equipment=0;
 list_furniture=0;
-i=0
-repeat(4) {
+i=0;
+repeat(4) { //Fleet Data
 list_fleet[i,0]=0;
 list_fleet[i,1]=0;
 list_fleet[i,2]=0;
@@ -82,12 +82,93 @@ list_fleet[i,4]=0;
 list_fleet[i,5]=0;
 i++;
 }
-dock_repair=2;
-dock_build=2;
+i=0;
+ii=0;
+repeat(1024){ //Data Storage
+	repeat(46){
+	database_ship[i,ii]=0;
+	ii++;
+	}
+	i++;
+	ii=0;
+}
+dock_repair=2; //Repair Docks
+dock_build=2; //Construction Docks
 /*(
 if(global.New_Game=false){
    file_exists(working_directory+"save.ttk");
 }*/
 
-/* */
-/*  */
+/*Ship Data as follows:
+0 - API ID
+1 - API Sort
+2 - Japanese Name
+3 - Hiragana
+4 - English Name
+5 - Ship Type 
+6 - Class Type
+7 - Remodel Level
+8 - Remodel ID
+9 - HP
+10 - <<Useless>>
+11 - Start Armor
+12 - Max Armor
+13 - Start Firepower
+14 - Max Firepower
+15 - Start Torpedo
+16 - Max Torpedo
+17 - Start Anti-Air
+18 - Max Anti-Air
+19 -  ASW
+20 - Start Luck
+21 - Max Luck
+22 - Speed (5 Slow, 10 Fast)
+23 - Range (0 None, 1 Short, 2 Medium, 3 Long, 4 V.Long)
+24 - No. of Slots
+25 - Slot 1 Planes
+26 - Slot 2 Planes
+27 - Slot 3 Planes
+28 - Slot 4 Planes
+29 - Slot 5 Planes
+30 - Build Time
+31 - Scrap Fuel
+32 - Scrap Ammo
+33 - Scrap Steel
+34 - Scrap Bauxite
+35 - Mod. Firepower
+36 - Mod. Torpedo
+37 - Mod. AA
+38 - Mod. Armor
+39 - Remodel Ammo
+40 - Remodel Steel
+41 - Refuel Fuel
+42 - Refuel Ammo
+43 - <<USELESS>>
+*/
+//Parse Ship CSV
+i=0;
+ii=0;
+iii=0;
+comma1=1;
+comma2=1;
+if(file_exists(working_directory+"ShipData.csv")){
+	shipData= file_text_open_read(working_directory+"ShipData.csv");
+	file_text_readln(shipData);
+	while(!file_text_eof(shipData)){
+		shipData_string=file_text_readln(shipData);
+		for(ii=1;ii<=string_length(shipData_string);ii++){
+			if (string_char_at(shipData_string,ii)==","){
+				comma1=comma2;
+				comma2=ii;
+				database_ship[i,iii]=string_copy(shipData_string,comma1,comma2-comma1);
+				comma2++;
+				iii++;
+			}
+		}
+		comma1=1;
+		comma2=1;
+		iii=0;
+		i++;
+	}
+	file_text_close(shipData);
+}

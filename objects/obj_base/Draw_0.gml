@@ -18,9 +18,9 @@ draw_sprite(spr_primaryResRect,0,728,25);//Resource Counters (Primary)
 draw_sprite(spr_primaryResRect,0,728,53);
 draw_sprite(spr_primaryResRect,0,844,25);
 draw_sprite(spr_primaryResRect,0,844,53);
-draw_sprite(spr_secondaryResRect,0,613,-1);//Resource Counters (Secondary)
-draw_sprite(spr_secondaryResRect,0,728,-1);
-draw_sprite(spr_secondaryResRect,0,844,-1);
+draw_sprite(spr_secondaryResRect,0,613,0);//Resource Counters (Secondary)
+draw_sprite(spr_secondaryResRect,0,728,0);
+draw_sprite(spr_secondaryResRect,0,844,0);
 draw_sprite(spr_resources,0,730,26); //Fuel
 draw_sprite(spr_resources,1,730,54); //Ammo
 draw_sprite(spr_resources,2,846,26); // Steel
