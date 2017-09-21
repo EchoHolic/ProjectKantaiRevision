@@ -1,8 +1,8 @@
-if(global.Move_Room!=0){
+if(global.Move_Room!=0){ //Fade In/Out Effect
    switch(global.Move_Room){
-      case 1: iii=(150-alarm[0])/150;
+      case 1: iii=(100-alarm[0])/100;
       break;
-      case 2: iii= alarm[0]/150;
+      case 2: iii= alarm[0]/100;
       break;
    }
    draw_set_alpha(iii);

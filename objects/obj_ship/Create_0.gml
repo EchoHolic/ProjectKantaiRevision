@@ -12,6 +12,7 @@ level=1;
 class="";
 remodel=0;
 ship_type=0;
+class_type=0;
 boss_type=0
 fleetno=0;
 
@@ -20,26 +21,31 @@ base_torpedo=0;
 base_antiair=0;
 base_armor=0;
 base_luck=0;
+base_asw=0;
 base_los=0;
 base_evasion=0;
 base_range=0;
 base_speed=0;
 base_divebomb=0;
 base_weight=0;
+base_accuracy=0;
 
 aircraft[0]=0;
 aircraft[1]=0;
 aircraft[2]=0;
 aircraft[3]=0;
+aircraft[4]=0;
 aircraft_m[0]=0;
 aircraft_m[1]=0;
 aircraft_m[2]=0;
 aircraft_m[3]=0;
+aircraft_m[4]=0;
 
 equip[0]=0;
 equip[1]=0;
 equip[2]=0;
 equip[3]=0;
+equip[4]=0;
 /*
 Range - 0 for Very Short, 1 for Short, 2 for Medium, 3 for Long, and 4 for Very Long
 

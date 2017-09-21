@@ -66,20 +66,20 @@ c_Dark_Orange=make_color_rgb(230,76,59);
 //Init Variables
 i=0;
 iii=0;
-repeat(100){ //Player Ships
-   list_ship[i]=0;
+repeat(300){ //Player Ships
+   list_ship[i]=-2;
    i++;
 }
 list_equipment=0;
 list_furniture=0;
 i=0;
 repeat(4) { //Fleet Data
-list_fleet[i,0]=0;
-list_fleet[i,1]=0;
-list_fleet[i,2]=0;
-list_fleet[i,3]=0;
-list_fleet[i,4]=0;
-list_fleet[i,5]=0;
+list_fleet[i,0]=-1;
+list_fleet[i,1]=-1;
+list_fleet[i,2]=-1;
+list_fleet[i,3]=-1;
+list_fleet[i,4]=-1;
+list_fleet[i,5]=-1;
 i++;
 }
 i=0;
@@ -94,6 +94,14 @@ repeat(1024){ //Data Storage
 }
 dock_repair=2; //Repair Docks
 dock_build=2; //Construction Docks
+//Resources
+res_fuel=1000;
+res_ammo=1000;
+res_steel=1000;
+res_bauxite=1000;
+res_bucket=0;
+res_devmat=10;
+res_screw=0;
 /*(
 if(global.New_Game=false){
    file_exists(working_directory+"save.ttk");
