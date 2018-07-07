@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Secretary Bob
 if(!secretary_bobd){
 	if(secretary_bob<4){
 		secretary_bob+=0.20;

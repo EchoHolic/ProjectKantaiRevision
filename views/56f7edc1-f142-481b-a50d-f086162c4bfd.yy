@@ -7,6 +7,8 @@
         "fee9d3c9-52d5-4a0a-acc8-6980b2536458",
         "71412fb0-99cd-4a1b-8cc5-a5763a9e2c68",
         "c82c06ee-ad63-4f8f-abf4-9e0c9a9cbab9",
+        "74f8164d-8452-4639-8d55-8d9913f1f93d",
+        "1ba032d8-efcc-467c-8133-4dc7ea2336cd",
         "226d0c98-dc78-4553-858b-a51b47731772",
         "36af8929-d4bf-4232-8072-d5366fb9e13e",
         "8cd2a8b4-b5d3-45c3-8b19-3cc6e31c6470",
@@ -18,7 +20,12 @@
         "81a21dcb-d3f8-40e1-bc86-681d26f23290",
         "2f3adf05-155c-4624-b29a-33bebbfa3a90",
         "72645f6f-694c-4687-9b43-8ee3a88e58fe",
-        "eea2a534-a6b7-4da0-b466-ffa8c6fd8d75"
+        "eea2a534-a6b7-4da0-b466-ffa8c6fd8d75",
+        "9c0b6b6a-a6f9-40c0-b252-b309cd356cf8",
+        "29871474-698a-4af2-bee7-8e72dd96109a",
+        "20e8a8b0-fbf4-4f27-89ac-1faff3531f30",
+        "d00d14cb-4cc9-4f21-afbc-4f8d5b021115",
+        "1623fdf6-bf44-4b76-811f-7bef96b04077"
     ],
     "filterType": "GMObject",
     "folderName": "Base_Main",

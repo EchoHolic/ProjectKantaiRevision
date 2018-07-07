@@ -24,5 +24,5 @@ switch(obj_startership.selection){
 	break;
 }
 global.Move_Room=1;
-obj_startership.alarm[0]=100;
-obj_saver.alarm[0]=100;
+obj_startership.alarm[0]=60;
+obj_saver.alarm[0]=60;
