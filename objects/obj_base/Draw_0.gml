@@ -1,8 +1,8 @@
 draw_set_alpha(1);
-//Draw Secretary
 var secretary = asset_get_index("ship_"+string_format_digit(obj_saver.list_ship[(obj_saver.list_fleet[0,0])].api_sortno)+"_main");
-if(move_menu == true){ 
-	if(move_menu_dest != 0){
+//Drawing Alpha-Dependant elements
+if(move_menu == true){ //Main Menu Alpha
+	if(move_menu_dest != 0 && base_visible == true){
 		draw_set_alpha(alarm[2]/10);
 		secretary_alpha=alarm[2]/10;
 	}
@@ -30,20 +30,57 @@ else{
 
 if(obj_saver.list_fleet[0,0]!=-1){ //Check for 1st Ship
 	if(sprite_exists(secretary)){
-		draw_sprite_ext(secretary,0,480,90+secretary_bob,0.85,0.85,0,c_white,secretary_alpha);
+		draw_sprite_ext(secretary,0,480,90+secretary_bob,0.85,0.85,0,c_white,secretary_alpha); //Draw Secretary
 	}
 }
 draw_sprite(spr_menuBack,0,234,330); //Button Menu Frame
-
+//Sub Menu Alpha
+if(move_menu == true){
+	if(move_menu_dest == 0 && base_visible == false){
+		draw_set_alpha(alarm[2]/10);
+	}
+	else{
+		draw_set_alpha(1);	
+	}
+}
+else{
+	if(move_menu2 == true && move_menu_dest != 0){
+		draw_set_alpha((10-alarm[3])/10);
+	}
+	else{
+		if(base_visible == false){
+			draw_set_alpha(1);	
+		}
+		else{
+			draw_set_alpha(0);
+		}
+	}
+}
+if(base_visible == false){
+	draw_set_color(obj_saver.c_Navy_Blue);
+	if(move_menu_dest != 0){
+		draw_rectangle(40,0,47,(room_height*0.3)+(room_height*((10-alarm[3])/10)*0.7),false); //Side Menu Bar
+	}
+	else{
+		draw_rectangle(40,0,47,(room_height*0.3)+(room_height*(alarm[2]/10)*0.7),false); //Side Menu Bar
+	}
+	if(move_menu_dest == 7){
+		draw_rectangle(159,433,244,436,false); //Separators for Sortie Text
+		draw_rectangle(460,433,545,436,false);
+		draw_rectangle(768,433,853,436,false);
+		draw_set_font(f_BaseSortie); //Sortie Mode Description
+		draw_set_halign(fa_center);
+		draw_text_outline(200,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Sortie out to the open waters \nand retake control of the seas.",2);
+		draw_text_outline(504,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Practice with your allies and \ngain experience safely!",2);
+		draw_text_outline(816,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Deploy expeditions to secure \nand supplies and trade routes.",2);
+	}
+}
 //Draw UI
 draw_set_alpha(1);
 draw_set_color(obj_saver.c_Navy_Blue);
 draw_rectangle(3,0,10,room_height,false); //Side Bar
 draw_rectangle(0,room_height-16,room_width,room_height,false); //Bottom Bar
 draw_rectangle(0,20,room_width,86,false); //Top Menu Bar
-if(base_visible == false){
-	draw_rectangle(40,0,47,(room_height*0.2)+(room_height*((10-alarm[3])/10)*0.8),false); //Side Menu Bar
-}
 draw_set_color(obj_saver.c_Pale_Blue);
 draw_rectangle(0,0,room_width,20,false); //Top Stats Bar
 draw_set_color(obj_saver.c_Chalk_White); // Chalk White
@@ -109,4 +146,4 @@ draw_text(945,27,string(obj_saver.res_steel));
 draw_text(945,55,string(obj_saver.res_bauxite));
 
 
-draw_text(820,540,string(mouse_x)+", "+string(mouse_y));//Temporary
+draw_text(840,540,string(mouse_x)+", "+string(mouse_y));//Temporary

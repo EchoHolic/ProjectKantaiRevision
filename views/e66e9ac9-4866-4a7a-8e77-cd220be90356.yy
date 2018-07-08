@@ -24,7 +24,10 @@
         "cd2707aa-2132-49b0-98fc-15324c07769a",
         "fbcb13a9-92af-48d7-acb1-da124ac1b405",
         "298b6aad-b2ef-4311-a4ab-ee199facbbbb",
-        "8711cd4f-cf6d-4f10-b72c-e58da65f501e"
+        "8711cd4f-cf6d-4f10-b72c-e58da65f501e",
+        "030464af-5ec3-4c68-a099-c3bd8efaa1a3",
+        "eb598d6a-87ea-431c-a356-1d2d6a28931a",
+        "628acece-a32e-4f0f-8669-223cf5273241"
     ],
     "filterType": "GMSprite",
     "folderName": "Base UI",

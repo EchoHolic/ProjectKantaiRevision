@@ -1,18 +1,28 @@
 {
-    "id": "72645f6f-694c-4687-9b43-8ee3a88e58fe",
+    "id": "b4c6a05e-9a33-4976-bbc2-11f696c9279b",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_btnStrategy",
+    "name": "obj_btnSortiePvP",
     "eventList": [
         {
-            "id": "72fde67d-ca1e-4045-880b-78e185cbb477",
+            "id": "18c23cbb-28d3-407c-aee4-25846bbc47d6",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 4,
             "eventtype": 6,
-            "m_owner": "72645f6f-694c-4687-9b43-8ee3a88e58fe"
+            "m_owner": "b4c6a05e-9a33-4976-bbc2-11f696c9279b"
+        },
+        {
+            "id": "071a2c53-eca5-4b7f-8cc1-434bd3e16ae9",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "b4c6a05e-9a33-4976-bbc2-11f696c9279b"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -33,6 +43,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "b621b3e2-ea78-4bbc-a16b-377d6ebb312d",
+    "spriteId": "eb598d6a-87ea-431c-a356-1d2d6a28931a",
     "visible": true
 }

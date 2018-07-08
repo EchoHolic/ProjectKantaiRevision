@@ -25,7 +25,10 @@
         "29871474-698a-4af2-bee7-8e72dd96109a",
         "20e8a8b0-fbf4-4f27-89ac-1faff3531f30",
         "d00d14cb-4cc9-4f21-afbc-4f8d5b021115",
-        "1623fdf6-bf44-4b76-811f-7bef96b04077"
+        "1623fdf6-bf44-4b76-811f-7bef96b04077",
+        "3366823c-eb95-4af4-ab81-a554e61302e0",
+        "b4c6a05e-9a33-4976-bbc2-11f696c9279b",
+        "ccc55ddf-9620-483e-80e6-fe3f53e31ab9"
     ],
     "filterType": "GMObject",
     "folderName": "Base_Main",

@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "030464af-5ec3-4c68-a099-c3bd8efaa1a3",
+            "Value": {
+                "id": "4fc281ff-a1a1-49f4-962c-5d7da914b162",
+                "resourcePath": "sprites\\spr_btnSortieBattle\\spr_btnSortieBattle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "03271413-abb7-4dc7-af4f-8e071ae8291a",
             "Value": {
                 "id": "2423c4cb-3b78-4be9-bd77-d769121d3c03",
@@ -319,6 +327,14 @@
             }
         },
         {
+            "Key": "3366823c-eb95-4af4-ab81-a554e61302e0",
+            "Value": {
+                "id": "52fac0e5-d0e8-4e82-9bcc-e1fe9915e893",
+                "resourcePath": "objects\\obj_btnSortieBattle\\obj_btnSortieBattle.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "33fc2c3f-9c1b-4a4b-8cab-5db26a08dbaf",
             "Value": {
                 "id": "1f72e6da-53b9-4de5-92f1-71ef37c24d6c",
@@ -475,6 +491,14 @@
             "Value": {
                 "id": "8524d841-767d-4326-8eaa-2037129eb67f",
                 "resourcePath": "sprites\\spr_btnOrganize\\spr_btnOrganize.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "628acece-a32e-4f0f-8669-223cf5273241",
+            "Value": {
+                "id": "2bf4a90e-a7a8-480c-b9ce-167ec1a1a482",
+                "resourcePath": "sprites\\spr_btnSortieExp\\spr_btnSortieExp.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -783,6 +807,14 @@
             }
         },
         {
+            "Key": "a5bc916c-cef7-46d1-a3ea-789e0d6ff704",
+            "Value": {
+                "id": "053be19a-1856-4f23-bf4d-778c27bb1289",
+                "resourcePath": "fonts\\f_BaseSortie\\f_BaseSortie.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "a62c5f17-801b-47cd-9466-6f06d82bf6f8",
             "Value": {
                 "id": "a2cccdcb-a1f5-440e-be6e-e73a6a801912",
@@ -876,6 +908,14 @@
                 "id": "8e566f4e-c766-438d-ae96-ea43a91c6175",
                 "resourcePath": "views\\b478f4ca-5717-4fea-8ec0-18bec17e38b4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b4c6a05e-9a33-4976-bbc2-11f696c9279b",
+            "Value": {
+                "id": "fe3004ac-b998-4e4f-be3f-da17d9621487",
+                "resourcePath": "objects\\obj_btnSortiePvP\\obj_btnSortiePvP.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1015,6 +1055,14 @@
             }
         },
         {
+            "Key": "ccc55ddf-9620-483e-80e6-fe3f53e31ab9",
+            "Value": {
+                "id": "adfe5f24-c8a1-4e05-97ef-73b9f75795bb",
+                "resourcePath": "objects\\obj_btnSortieExp\\obj_btnSortieExp.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "cd2707aa-2132-49b0-98fc-15324c07769a",
             "Value": {
                 "id": "49b0fb33-c284-487e-9a70-0c1888675332",
@@ -1151,6 +1199,14 @@
             }
         },
         {
+            "Key": "eb598d6a-87ea-431c-a356-1d2d6a28931a",
+            "Value": {
+                "id": "eb11d6ac-71f8-4acf-93b3-38a51fad48b3",
+                "resourcePath": "sprites\\spr_btnSortiePvP\\spr_btnSortiePvP.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ec57679c-85ad-45d4-bb01-3394e78fd156",
             "Value": {
                 "id": "88b7beab-a761-4c59-be17-89d80680e54e",
@@ -1271,6 +1327,14 @@
             }
         },
         {
+            "Key": "fee8e895-b8e6-43cd-8758-ef3c177d0e16",
+            "Value": {
+                "id": "80e29bdf-cfbd-48bf-8210-ae6f1b65b824",
+                "resourcePath": "scripts\\draw_text_outline\\draw_text_outline.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fee9d3c9-52d5-4a0a-acc8-6980b2536458",
             "Value": {
                 "id": "ca067b75-25a7-4c4f-ab80-2b8d7c94a517",
@@ -1290,7 +1354,8 @@
         "181f7355-2e9b-451c-a830-21f67eaf52b7",
         "1589842e-e058-4fa5-b89c-aeb45feb1d10",
         "7a8ef482-dee9-4c74-86ee-48bc243d1680",
-        "6c534fb9-fab6-40ea-a04e-b35f65e427c1"
+        "6c534fb9-fab6-40ea-a04e-b35f65e427c1",
+        "fee8e895-b8e6-43cd-8758-ef3c177d0e16"
     ],
     "tutorial": ""
 }

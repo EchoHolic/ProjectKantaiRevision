@@ -10,10 +10,10 @@ base_visible=true; //If the base is fully visible
 alarm[0]=5;
 HUD_Button_Layer=layer_create(-90);
 instance_create_layer(0,0,HUD_Button_Layer,obj_btnBadgeTop);
-instance_create_layer(170,28,HUD_Button_Layer,obj_btnProfile);
-instance_create_layer(300,28,HUD_Button_Layer,obj_btnLibrary);
-instance_create_layer(430,28,HUD_Button_Layer,obj_btnItems);
-instance_create_layer(545,28,HUD_Button_Layer,obj_btnQuests);
+instance_create_layer(170,29,HUD_Button_Layer,obj_btnProfile);
+instance_create_layer(300,29,HUD_Button_Layer,obj_btnLibrary);
+instance_create_layer(430,29,HUD_Button_Layer,obj_btnItems);
+instance_create_layer(545,29,HUD_Button_Layer,obj_btnQuests);
 instance_create_layer(235,330,HUD_Button_Layer,obj_btnSortie);
 instance_create_layer(235,197,HUD_Button_Layer,obj_btnOrganize);
 instance_create_layer(120,259,HUD_Button_Layer,obj_btnResupply);
