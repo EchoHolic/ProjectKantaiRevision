@@ -64,16 +64,6 @@ if(base_visible == false){
 	else{
 		draw_rectangle(40,0,47,(room_height*0.3)+(room_height*(alarm[2]/10)*0.7),false); //Side Menu Bar
 	}
-	if(move_menu_dest == 7){
-		draw_rectangle(159,433,244,436,false); //Separators for Sortie Text
-		draw_rectangle(460,433,545,436,false);
-		draw_rectangle(768,433,853,436,false);
-		draw_set_font(f_BaseSortie); //Sortie Mode Description
-		draw_set_halign(fa_center);
-		draw_text_outline(200,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Sortie out to the open waters \nand retake control of the seas.",2);
-		draw_text_outline(504,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Practice with your allies and \ngain experience safely!",2);
-		draw_text_outline(816,455,obj_saver.c_Navy_Blue,obj_saver.c_Chalk_White,"Deploy expeditions to secure \nand supplies and trade routes.",2);
-	}
 }
 //Draw UI
 draw_set_alpha(1);

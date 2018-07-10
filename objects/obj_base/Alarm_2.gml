@@ -22,7 +22,8 @@ if(move_menu == true){
 		base_visible = false;	
 	}
 	else{
-		base_visible = true;	
+		base_visible = true;
+		menu_sortie_mode= 0;
 		alarm[3]=10;
 	}
 }

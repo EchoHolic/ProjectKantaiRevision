@@ -1,3 +1,8 @@
+//Display setting
+if(display_aa >= 6){
+	display_reset(4,true);
+}
+
 //Proficiency Tables. Not accurate to the original.
 skill_fighter[0]=0;
 skill_fighter[1]=2;
@@ -57,9 +62,12 @@ global.Move_Room=0;
 
 //Colors
 c_Navy_Blue=make_color_rgb(44,62,80);
+c_Navy_Blue_2=make_color_rgb(50,68,86); //Lighter ver
 c_Pale_Blue=make_color_rgb(67,84,100);
+c_Pale_Blue_2=make_color_rgb(106,119,131); //Lighter ver
 c_Chalk_White=make_color_rgb(236,240,241);
 c_Bright_Blue=make_color_rgb(41,128,185);
+c_Dark_Blue=make_color_rgb(20,40,60);
 c_Pale_Bright_Blue=make_color_rgb(100,174,224);
 c_Dark_Orange=make_color_rgb(230,76,59);
 

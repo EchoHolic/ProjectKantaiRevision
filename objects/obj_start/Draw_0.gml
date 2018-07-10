@@ -6,9 +6,10 @@ else{
 i=0
 }
 draw_set_alpha(1);
-draw_sprite(spr_startborder,0,0,0);
 draw_sprite(spr_logo,0,170,52);
 draw_set_color(obj_saver.c_Navy_Blue);
+draw_rectangle(0,0,room_width,12,false);
+draw_rectangle(0,room_height-12,room_width,room_height,false);
 draw_set_font(f_SmallText);
 draw_text(4,448,string_hash_to_newline("Last Updated: "+date_time_string(GM_build_date)));
 draw_set_halign(fa_right);
