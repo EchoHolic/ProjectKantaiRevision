@@ -2,6 +2,8 @@ for(var i=0;i<array_length_1d(obj_saver.list_ship);i++){
 	if(obj_saver.list_ship[i]==-2){
 		obj_saver.list_ship[i]=instance_create_depth(0,0,2411,obj_ship);
 		var ii=call_ship_data(argument0);
+		obj_saver.list_ship[i].unique_id=global.UniqueID_Ship;
+		global.UniqueID_Ship++;
 		obj_saver.list_ship[i].api_id=real(obj_saver.database_ship[ii,0]);
 		obj_saver.list_ship[i].api_sortno=real(obj_saver.database_ship[ii,1]);;
 		obj_saver.list_ship[i].jname=obj_saver.database_ship[ii,2];
@@ -44,6 +46,9 @@ for(var i=0;i<array_length_1d(obj_saver.list_ship);i++){
 		obj_saver.list_ship[i].aircraft_m[3]=real(obj_saver.database_ship[ii,28]);
 		obj_saver.list_ship[i].aircraft_m[4]=real(obj_saver.database_ship[ii,29]);
 		
+		obj_saver.list_ship[i].fuel_m=real(obj_saver.database_ship[ii,41]);
+		obj_saver.list_ship[i].ammo_m=real(obj_saver.database_ship[ii,42]);
+		//Equipment still does not work
 		obj_saver.list_ship[i].equip[0]=-1;
 		obj_saver.list_ship[i].equip[1]=-1;
 		obj_saver.list_ship[i].equip[2]=-1;
@@ -54,6 +59,6 @@ for(var i=0;i<array_length_1d(obj_saver.list_ship);i++){
 			obj_saver.list_ship[i].equip[iii]=0;
 			iii++;
 		}
-		return i;
+		return obj_saver.list_ship[i].unique_id;
 	}
 }

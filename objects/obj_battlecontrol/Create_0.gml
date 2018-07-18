@@ -22,6 +22,13 @@ enemy_fleet[0,4]=instance_create_layer(0,0,layer_ship,obj_ship);
 enemy_fleet[0,5]=instance_create_layer(0,0,layer_ship,obj_ship);
 enemy_formation=0;
 enemy_fleet_size=5;
+
+var i = 0;
+repeat (100){
+	battle_record[i]=-1;
+	i++;
+}
+/*
 //LOS Detection Phase
 ally_los=get_fleet_los(0,0);
 enemy_los=get_fleet_los(1,0);
@@ -83,6 +90,11 @@ if(air_status!=2){
 aaci_ally=check_aaci(0);
 aaci_enemy=check_aaci(1);
 //Bombing Phase
+*/
+//Determine Shelling Order
+
+//Shelling Phase
+
 
 //Display Battle
 //Spawn Ally Ships

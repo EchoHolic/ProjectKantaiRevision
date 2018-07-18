@@ -8,6 +8,7 @@ equip_range=0;
 equip_divebomb=0;
 
 equip_id=0;
+equip_unique_id=0;
 equip_type=0;
 equip_ha=0;
 equip_special=0;

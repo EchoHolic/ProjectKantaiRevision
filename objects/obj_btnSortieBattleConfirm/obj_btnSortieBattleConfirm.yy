@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "obj_btnSortieBattleConfirm",
     "eventList": [
-        
+        {
+            "id": "27482d40-a1d3-4253-bf4e-4d8698026959",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 4,
+            "eventtype": 6,
+            "m_owner": "2573269f-e0d3-4cad-a9b8-70fd78a07e9c"
+        },
+        {
+            "id": "7eb1d612-e2d8-4830-9765-b25fd973a02e",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "2573269f-e0d3-4cad-a9b8-70fd78a07e9c"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

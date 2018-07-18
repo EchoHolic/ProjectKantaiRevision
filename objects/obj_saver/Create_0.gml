@@ -54,10 +54,12 @@ aaci_shot_down[18]=2;
 
 //Profile
 global.HQ_Level=1;
-global.Name="";
+global.Name="Newface";
 global.New_Game=false;
 global.Save_Exists=false;
 global.Move_Room=0;
+global.UniqueID_Ship=1;
+global.UniqueID_Equip=1;
 
 
 //Colors
@@ -76,12 +78,15 @@ i=0;
 iii=0;
 repeat(300){ //Player Ships
    list_ship[i]=-2;
+   list_equipment[i]=-2;
+   list_equipment[i+300]=-2;
+   list_equipment[i+600]=-2;
+   list_equipment[i+900]=-2;
    i++;
 }
-list_equipment=0;
 list_furniture=0;
 i=0;
-repeat(4) { //Fleet Data
+repeat(6) { //Fleet Data
 list_fleet[i,0]=-1;
 list_fleet[i,1]=-1;
 list_fleet[i,2]=-1;
@@ -110,6 +115,12 @@ res_bauxite=1000;
 res_bucket=0;
 res_devmat=10;
 res_screw=0;
+
+//Sortie Data Storage
+sortie_fleet=0;
+sortie_map=0;
+sortie_world=0;
+
 /*(
 if(global.New_Game=false){
    file_exists(working_directory+"save.ttk");
@@ -184,7 +195,7 @@ if(file_exists(working_directory+"ShipData.csv")){
 		comma1=1;
 		comma2=1;
 		iii=0;
-		i++;
+		i++; //Advance to next ship
 	}
 	file_text_close(shipData);
 }

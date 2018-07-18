@@ -107,3 +107,4 @@ if(corner == 2 || corner == 3 || corner == 4 || corner == 6 || corner == 8){ //B
 	draw_vertex(xx2-b_length,yy2);
 }
 draw_primitive_end();
+draw_set_alpha(1);

@@ -1,5 +1,6 @@
 api_id=0;
 api_sortno=0;
+unique_id=0;
 jname="";
 yname="";
 ename="";
@@ -41,6 +42,11 @@ aircraft_m[2]=0;
 aircraft_m[3]=0;
 aircraft_m[4]=0;
 
+fuel=1;
+fuel_m=0;
+ammo=1;
+ammo_m=0;
+
 equip[0]=0;
 equip[1]=0;
 equip[2]=0;
@@ -52,6 +58,10 @@ Range - 0 for Very Short, 1 for Short, 2 for Medium, 3 for Long, and 4 for Very 
 Speed - 0 for Slow, 1 for Fast
 
 Weight - How heavy the guns can be before accuracy loss
+
+fuel_m and ammo_m - The total value needed to refuel the ship.
+
+fuel and ammo - Percentage of fuel/ammo remaining on a scale of 0-1. (50% = 0.5, etc)
 
 Ship Type
 0 - Destroyer

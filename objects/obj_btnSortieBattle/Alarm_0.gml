@@ -3,5 +3,4 @@
 sub_menu_move=false;
 if(obj_base.menu_sortie_mode == 1){
 	instance_create_layer(0,0,obj_base.HUD_Button_Layer2,obj_mapHandler);
-	instance_create_layer(130,164,obj_base.HUD_Button_Layer2,obj_maptile_1_1);
 }

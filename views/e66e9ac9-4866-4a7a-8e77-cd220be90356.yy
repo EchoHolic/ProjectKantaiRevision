@@ -5,8 +5,6 @@
     "name": "e66e9ac9-4866-4a7a-8e77-cd220be90356",
     "children": [
         "bceb897b-7650-4e55-a8ce-c8a672a6bec1",
-        "c89e2b5b-46fa-426f-a940-06c4628bf5ff",
-        "bc601a48-786d-4add-8856-3af8baa8393f",
         "9cd898e0-7897-40bf-860d-c92369b56e16",
         "f1c5916a-3af3-4aec-bad7-513036bce9d0",
         "8ec194f0-ec7a-4be0-ae59-37a1a88d4dd0",
@@ -25,11 +23,8 @@
         "fbcb13a9-92af-48d7-acb1-da124ac1b405",
         "298b6aad-b2ef-4311-a4ab-ee199facbbbb",
         "8711cd4f-cf6d-4f10-b72c-e58da65f501e",
-        "030464af-5ec3-4c68-a099-c3bd8efaa1a3",
-        "eb598d6a-87ea-431c-a356-1d2d6a28931a",
-        "628acece-a32e-4f0f-8669-223cf5273241",
         "9334eb82-ce4c-428a-b69e-030c375455ad",
-        "98e904d6-1c4b-4221-a666-cb141ffd9436"
+        "102cad2e-a033-41ba-b706-948f772623a1"
     ],
     "filterType": "GMSprite",
     "folderName": "Base UI",

@@ -34,7 +34,7 @@ if(obj_base.menu_sortie_mode != 0){ //Drawing menu if pressed
 		else{
 			draw_bev_rect(112,152,room_width,560,obj_saver.c_Pale_Blue_2,18,2,image_alpha);
 			draw_set_color(obj_saver.c_Navy_Blue);
-			draw_rectangle(130,504,900,508,false);
+			draw_rectangle(130,504,900,506,false);
 			draw_set_alpha(image_alpha);
 			draw_sprite(spr_sideTitle,0,64,180);
 		}
