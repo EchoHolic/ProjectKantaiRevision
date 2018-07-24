@@ -52,6 +52,110 @@ aaci_shot_down[16]=4;
 aaci_shot_down[17]=2;
 aaci_shot_down[18]=2;
 
+//Formation Modifiers
+//0 = Line Ahead, 1 = Double Line, 2 = Diamond, 3 = Echelon, 4 = Line Abreast
+//0 = Shelling Mod, 1 = Torpedo Mod, 2 = ASW Mod, 3 = Night Mod, 4 = AA Mod 5 = Aerial Mod
+//6 = Shelling Acc, 7 = Torpedo Acc, 8 = ASW Acc, 9 = Night Acc, 10= Aerial Acc
+//11 = Shelling Eva, 12 = Torpedo Eva, 13 = ASW Eva, 14, Night Eva, 15 = Aerial Eva, 16 = Flagship Protection
+//Line Ahead
+formation[0,0]=1;
+formation[0,1]=1;
+formation[0,2]=0.6;
+formation[0,3]=1;
+formation[0,4]=1;
+formation[0,5]=1;
+formation[0,6]=1;
+formation[0,7]=1;
+formation[0,8]=1;
+formation[0,9]=1;
+formation[0,10]=1;
+formation[0,11]=1;
+formation[0,12]=1;
+formation[0,13]=1;
+formation[0,14]=1;
+formation[0,15]=1;
+formation[0,16]=0.4;
+
+//Double Line
+formation[1,0]=0.8;
+formation[1,1]=0.8;
+formation[1,2]=0.8;
+formation[1,3]=1;
+formation[1,4]=1.2;
+formation[1,5]=1;
+formation[1,6]=1.2;
+formation[1,7]=0.8;
+formation[1,8]=1.2;
+formation[1,9]=0.9;
+formation[1,10]=1;
+formation[1,11]=1;
+formation[1,12]=1;
+formation[1,13]=1;
+formation[1,14]=1;
+formation[1,15]=1;
+formation[1,16]=0.6;
+
+
+//Diamond
+formation[2,0]=0.7;
+formation[2,1]=0.7;
+formation[2,2]=1.2;
+formation[2,3]=1;
+formation[2,4]=1.6;
+formation[2,5]=1;
+formation[2,6]=1;
+formation[2,7]=0.4;
+formation[2,8]=1;
+formation[2,9]=0.7;
+formation[2,10]=1;
+formation[2,11]=1.1;
+formation[2,12]=1.1;
+formation[2,13]=1;
+formation[2,14]=1;
+formation[2,15]=1;
+formation[2,16]=0.75;
+
+
+//Echelon
+formation[3,0]=0.6;
+formation[3,1]=0.6;
+formation[3,2]=1;
+formation[3,3]=1;
+formation[3,4]=1;
+formation[3,5]=1;
+formation[3,6]=1.2;
+formation[3,7]=0.6;
+formation[3,8]=1.2;
+formation[3,9]=0.8;
+formation[3,10]=1;
+formation[3,11]=1.2;
+formation[3,12]=1.3;
+formation[3,13]=1.3;
+formation[3,14]=1.1;
+formation[3,15]=1;
+formation[3,16]=0.6;
+
+
+//Line Abreast
+formation[4,0]=0.6;
+formation[4,1]=0.6;
+formation[4,2]=1.3;
+formation[4,3]=1;
+formation[4,4]=1;
+formation[4,5]=1;
+formation[4,6]=1.2;
+formation[4,7]=0.3;
+formation[4,8]=1.2;
+formation[4,9]=0.8;
+formation[4,10]=1;
+formation[4,11]=1.3;
+formation[4,12]=1.4;
+formation[4,13]=1.1;
+formation[4,14]=1.2;
+formation[4,15]=1;
+formation[4,16]=0.6;
+
+
 //Profile
 global.HQ_Level=1;
 global.Name="Newface";
@@ -63,15 +167,23 @@ global.UniqueID_Equip=1;
 
 
 //Colors
-c_Navy_Blue=make_color_rgb(44,62,80);
-c_Navy_Blue_2=make_color_rgb(50,68,86); //Lighter ver
-c_Pale_Blue=make_color_rgb(67,84,100);
-c_Pale_Blue_2=make_color_rgb(106,119,131); //Lighter ver
-c_Chalk_White=make_color_rgb(236,240,241);
-c_Bright_Blue=make_color_rgb(41,128,185);
-c_Dark_Blue=make_color_rgb(20,40,60);
-c_Pale_Bright_Blue=make_color_rgb(100,174,224);
-c_Dark_Orange=make_color_rgb(230,76,59);
+//Comments show RGB order. However, Gamemaker accepts inputs in BGR order, take note.
+enum color{
+	c_Navy_Blue=5258796,  //44,62,80
+	c_Navy_Blue_2=5653554, //50,68,86 Lighter ver
+	c_Pale_Blue=6575171, //67,84,100
+	c_Pale_Blue_2=8615786, //106,119,131 Lighter ver
+	c_Chalk_White=15855852, //236,240,241
+	c_Bright_Blue=12156969, //41,128,185
+	c_Dark_Blue=3942420, //20,40,60
+	c_Pale_Bright_Blue=14724708, //100,174,224
+	c_Dark_Orange=3886310, //230,76,59
+	c_Node_Red1=7895290, //250,120,120
+	c_Node_Red2=1974005 //245,30,30
+}
+
+//Colors for Map Nodes
+
 
 //Init Variables
 i=0;
@@ -98,7 +210,7 @@ i++;
 i=0;
 ii=0;
 repeat(1024){ //Data Storage
-	repeat(46){
+	repeat(55){
 	database_ship[i,ii]=0;
 	ii++;
 	}
@@ -120,6 +232,13 @@ res_screw=0;
 sortie_fleet=0;
 sortie_map=0;
 sortie_world=0;
+//Map Arrow Amount Numbers
+map_arrow_num[0,0]=3;
+map_arrow_num[0,1]=0;
+map_arrow_num[0,2]=0;
+map_arrow_num[0,3]=0;
+map_arrow_num[0,4]=0;
+map_arrow_num[0,5]=0;
 
 /*(
 if(global.New_Game=false){
@@ -137,7 +256,7 @@ if(global.New_Game=false){
 7 - Remodel Level
 8 - Remodel ID
 9 - HP
-10 - <<Useless>>
+10 - Max Mod HP(?)
 11 - Start Armor
 12 - Max Armor
 13 - Start Firepower
@@ -146,10 +265,10 @@ if(global.New_Game=false){
 16 - Max Torpedo
 17 - Start Anti-Air
 18 - Max Anti-Air
-19 -  ASW
+19 - ASW
 20 - Start Luck
 21 - Max Luck
-22 - Speed (5 Slow, 10 Fast)
+22 - Speed (5 Slow, 10 Fast, 15 Fast+, 20 Fastest)
 23 - Range (0 None, 1 Short, 2 Medium, 3 Long, 4 V.Long)
 24 - No. of Slots
 25 - Slot 1 Planes
@@ -166,11 +285,24 @@ if(global.New_Game=false){
 36 - Mod. Torpedo
 37 - Mod. AA
 38 - Mod. Armor
-39 - Remodel Ammo
-40 - Remodel Steel
-41 - Refuel Fuel
-42 - Refuel Ammo
-43 - <<USELESS>>
+39 - <<UNKNOWN>>
+40 - Remodel Ammo
+41 - Remodel Steel
+42 - Refuel Fuel
+43 - Refuel Ammo
+44 - <<UNKNOWN>>
+
+Self-added parameters
+45 - ASW growth
+46 - Evasion
+47 - Evasion growth
+48 - LOS
+49 - LOS growth
+50 - Stock Equip 1 ID
+51 - Stock Equip 2 ID
+52 - Stock Equip 3 ID
+53 - Stock Equip 4 ID
+54 - Is convertible
 */
 //Parse Ship CSV
 i=0;

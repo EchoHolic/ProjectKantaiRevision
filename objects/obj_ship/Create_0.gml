@@ -8,6 +8,7 @@ ename="";
 maxhp=0;
 currhp=0;
 level=1;
+morale=40;
 
 
 class="";
@@ -52,6 +53,14 @@ equip[1]=0;
 equip[2]=0;
 equip[3]=0;
 equip[4]=0;
+equip[5]=0;
+
+equip_range=0;
+//For battlecontrol use
+battle_order=false;
+is_enemy=false;
+target_attempted=false;
+
 /*
 Range - 0 for Very Short, 1 for Short, 2 for Medium, 3 for Long, and 4 for Very Long
 
@@ -64,22 +73,28 @@ fuel_m and ammo_m - The total value needed to refuel the ship.
 fuel and ammo - Percentage of fuel/ammo remaining on a scale of 0-1. (50% = 0.5, etc)
 
 Ship Type
-0 - Destroyer
-1 - Light Cruiser
-2 - Heavy Cruiser
-3 - Battleship
-4 - Aviation Battleship
-5 - Aviation Cruiser
-6 - Light Carrier
-7 - Standard Carrier
-8 - Armored Carrier
-9 - Submarine
-10 - Submarine w/Planes
-11 - Transport Ship
-12 - Seaplane Tender
-13 - Repair Ship
-14 - Patrol Boat
-15 - Installation
+1 - Kaiboukan
+2 - Destroyer
+3 - Light Cruiser
+4 - Torpedo Cruiser
+5 - Heavy Cruiser
+6 - Aviation Cruiser
+7 - Light Carrier
+8 - Fast Battleship
+9 - Battleship
+10 - Aviation Battleship
+11 - Standard Carrier
+12 - ?
+13 - Submarine
+14 - Submarine w/Planes
+15 - Transport Ship (Wa-class only)
+16 - Seaplane Tender
+17 - Amphibious Assault Ship
+18 - Armored Carrier
+19 - Repair Ship
+20 - Submarine Tender
+21 - Training Cruiser
+22 - Fleet Oiler
 
 Boss Type
 0 - None

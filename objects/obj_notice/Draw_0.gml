@@ -20,10 +20,10 @@ shader_reset()//This ends the shader effect
 
 //Drawing Name Box
 draw_set_alpha((10-alarm[0])/10);
-draw_set_color(obj_saver.c_Navy_Blue);
+draw_set_color(color.c_Navy_Blue);
 draw_rectangle(0,195+50*(alarm[0]/10),room_width,320+50*((10-alarm[0])/10),false); // Back Bar
 
-draw_set_color(obj_saver.c_Chalk_White);
+draw_set_color(color.c_Chalk_White);
 draw_set_font(f_Notice);
 draw_set_halign(fa_center);
 draw_text(room_width/2,250,string_hash_to_newline("You cannot continue as you do not \nhave an existing save file."));

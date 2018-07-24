@@ -1,3 +1,9 @@
 image_speed=0;
+image_alpha=0;
+image_xscale=0.833;
+image_yscale=0.833;
 fleetno=0;
-
+is_enemy=-1;
+appear=false;
+ship_src=0;
+currhp=0;

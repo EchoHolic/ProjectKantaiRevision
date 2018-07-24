@@ -1,5 +1,4 @@
 draw_set_alpha(1);
-var secretary = asset_get_index("ship_"+string_format_digit(obj_saver.list_ship[call_ship_uid(obj_saver.list_fleet[0,0])].api_sortno)+"_main");
 //Drawing Alpha-Dependant elements
 if(move_menu == true){ //Main Menu Alpha
 	if(move_menu_dest != 0 && base_visible == true){
@@ -57,7 +56,7 @@ else{
 	}
 }
 if(base_visible == false){
-	draw_set_color(obj_saver.c_Navy_Blue);
+	draw_set_color(color.c_Navy_Blue);
 	if(move_menu_dest != 0){
 		draw_rectangle(40,0,47,(room_height*0.3)+(room_height*((10-alarm[3])/10)*0.7),false); //Side Menu Bar
 	}
@@ -67,27 +66,27 @@ if(base_visible == false){
 }
 //Draw UI
 draw_set_alpha(1);
-draw_set_color(obj_saver.c_Navy_Blue);
+draw_set_color(color.c_Navy_Blue);
 draw_rectangle(3,0,10,room_height,false); //Side Bar
 draw_rectangle(0,room_height-16,room_width,room_height,false); //Bottom Bar
 draw_rectangle(0,20,room_width,86,false); //Top Menu Bar
-draw_set_color(obj_saver.c_Pale_Blue);
+draw_set_color(color.c_Pale_Blue);
 draw_rectangle(0,0,room_width,20,false); //Top Stats Bar
-draw_set_color(obj_saver.c_Chalk_White); // Chalk White
+draw_set_color(color.c_Chalk_White); // Chalk White
 draw_rectangle(0,80,room_width,83,false); //Top Menu Separator
 draw_rectangle(0,room_height-12,room_width,room_height-14,false); //Bottom Bar Separator
-draw_set_color(obj_saver.c_Bright_Blue);
+draw_set_color(color.c_Bright_Blue);
 draw_rectangle(280,28,282,74,false);//Top Menu Button Separators
 draw_rectangle(415,28,417,74,false);//Top Menu Button Separators
 draw_rectangle(530,28,532,74,false);//Top Menu Button Separators
 draw_rectangle(610,28,612,74,false);//Top Menu Button Separators
-draw_bev_rect(728,25,728+110,25+22,obj_saver.c_Chalk_White,4,1,1); //Resource Counters (Primary)
-draw_bev_rect(728,53,728+110,53+22,obj_saver.c_Chalk_White,4,1,1);
-draw_bev_rect(844,25,844+110,25+22,obj_saver.c_Chalk_White,4,1,1);
-draw_bev_rect(844,53,844+110,53+22,obj_saver.c_Chalk_White,4,1,1);
-draw_bev_rect(613,0,613+110,20,obj_saver.c_Chalk_White,4,7,0.3);//Resource Counters (Secondary)
-draw_bev_rect(728,0,728+110,20,obj_saver.c_Chalk_White,4,7,0.3);
-draw_bev_rect(844,0,844+110,20,obj_saver.c_Chalk_White,4,7,0.3);
+draw_bev_rect(728,25,728+110,25+22,color.c_Chalk_White,4,1,1); //Resource Counters (Primary)
+draw_bev_rect(728,53,728+110,53+22,color.c_Chalk_White,4,1,1);
+draw_bev_rect(844,25,844+110,25+22,color.c_Chalk_White,4,1,1);
+draw_bev_rect(844,53,844+110,53+22,color.c_Chalk_White,4,1,1);
+draw_bev_rect(613,0,613+110,20,color.c_Chalk_White,4,7,0.3);//Resource Counters (Secondary)
+draw_bev_rect(728,0,728+110,20,color.c_Chalk_White,4,7,0.3);
+draw_bev_rect(844,0,844+110,20,color.c_Chalk_White,4,7,0.3);
 draw_sprite(spr_resources,0,730,26); //Fuel
 draw_sprite(spr_resources,1,730,55); //Ammo
 draw_sprite(spr_resources,2,846,26); // Steel
@@ -109,7 +108,7 @@ if(move_menu_black == true){ //Fade In/Out Effect
    draw_set_alpha(1);
 }
 
-/* Regarding above, holy shit past me actually forsaw and wrote a fadeout transistion
+/* Regarding above, holy shit past me actually foresaw and wrote a fadeout transistion
 that goes underneath the UI. Future me 1 year later decided to go with a seamless solution
 but I'll leave it in; in case I actually need it.
 */
@@ -119,17 +118,17 @@ but I'll leave it in; in case I actually need it.
 
 draw_set_alpha(1);
 draw_set_font(f_BaseName);
-draw_set_color(obj_saver.c_Pale_Bright_Blue);
+draw_set_color(color.c_Pale_Bright_Blue);
 draw_set_halign(fa_left);
 draw_text(300,2,"HQ Level:");
-draw_set_color(obj_saver.c_Chalk_White);
+draw_set_color(color.c_Chalk_White);
 draw_text(170,3,global.Name); //Draw Username
 draw_text(405,2,global.HQ_Level); // Draw HQ Level
 draw_set_halign(fa_right);
 draw_text(945,0,string(obj_saver.res_bucket));//Resource Values
 draw_text(830,0,string(obj_saver.res_devmat));
 draw_text(715,0,string(obj_saver.res_screw));
-draw_set_color(obj_saver.c_Bright_Blue);
+draw_set_color(color.c_Bright_Blue);
 draw_text(830,26,string(obj_saver.res_fuel));
 draw_text(830,54,string(obj_saver.res_ammo));
 draw_text(945,26,string(obj_saver.res_steel));

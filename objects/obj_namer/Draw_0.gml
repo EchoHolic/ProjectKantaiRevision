@@ -20,14 +20,14 @@ shader_reset()//this ends the shader effect
 
 //Drawing Name Box
 draw_set_alpha((10-alarm[0])/10);
-draw_set_color(obj_saver.c_Navy_Blue);
+draw_set_color(color.c_Navy_Blue);
 draw_rectangle(0,195+50*(alarm[0]/10),room_width,320+50*((10-alarm[0])/10),false); // Back Bar
 
 
-draw_set_color(obj_saver.c_Pale_Blue);
+draw_set_color(color.c_Pale_Blue);
 draw_rectangle(316,265+alarm[0],644,310-alarm[0],false); //Name Box
 
-draw_set_color(obj_saver.c_Chalk_White);
+draw_set_color(color.c_Chalk_White);
 draw_set_font(f_Namer);
 if string_length(keyboard_string) > 16
 {

@@ -1,6 +1,7 @@
 secretary_bob=0;
 secretary_bobd=false; //For reversing the bobbing
 secretary_alpha=1; //For transistions
+secretary = asset_get_index("ship_"+string_format_digit(obj_saver.list_ship[call_ship_uid(obj_saver.list_fleet[0,0])].api_id)+"_main");
 move_alpha=0; // Alpha variable (duh)
 move_menu_black=false; // Fade-in Transistion
 move_menu=false; // If the menu is to be transistioned
