@@ -20,5 +20,13 @@ if(map_handler.move_allow == true){
 	}
 }
 if(image_alpha<1){
-	image_alpha+=1/60;	
+	if(map_handler.alarm[3] == -1){
+		image_alpha+=1/60;	
+	}
+	else{
+		image_alpha=1*map_handler.m_alpha;	
+	}
+}
+else{
+	image_alpha=1*map_handler.m_alpha;	
 }

@@ -54,7 +54,7 @@ if(file_exists(working_directory+string(obj_saver.sortie_world)+"-"+string(obj_s
 draw_map=asset_get_index("spr_map_1_1");
 var i=0;
 repeat(obj_saver.map_arrow_num[obj_saver.sortie_world,obj_saver.sortie_map]){
-	draw_map_arrows[i]=asset_get_index("spr_map_"+string(obj_saver.sortie_world)+"_"+string(obj_saver.sortie_map)+"_"+string(i+1));
+	draw_map_arrows[i]=asset_get_index("spr_map_1_1_"+string(i+1));
 	i++;
 }
 
@@ -79,6 +79,11 @@ move_allow=false; //Whether obj_map_ship is allowed to move to new location
 move_reached=false; //Whether obj_map_ship has arrived at new location
 compass_wobble=false;
 compass_wobble2=0;
+ship_cg=asset_get_index("ship_"+string_format_digit(obj_saver.list_ship[call_ship_uid(obj_saver.list_fleet[obj_saver.sortie_fleet,0])].api_id)+"_main");
+ship_appear=0;
+ship_alpha=0;
+ship_x=50;
+m_alpha=1;
 formation_selected=0 //Formation to pass to battlecontrol
 //Formation
 //0 - Line Ahead
@@ -96,6 +101,12 @@ node_visited[0]=false;
 node_visited[1]=false;
 node_visited[2]=false;
 node_visited[3]=false;
+
+//Experience of node
+node_exp[0]=30;
+node_exp[1]=30;
+node_exp[2]=30;
+node_exp[3]=30;
 
 //Enemy Formations
 node_enemy[0,0]=-1

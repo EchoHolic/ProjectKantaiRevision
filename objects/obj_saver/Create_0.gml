@@ -179,7 +179,8 @@ enum color{
 	c_Pale_Bright_Blue=14724708, //100,174,224
 	c_Dark_Orange=3886310, //230,76,59
 	c_Node_Red1=7895290, //250,120,120
-	c_Node_Red2=1974005 //245,30,30
+	c_Node_Red2=1974005, //245,30,30
+	c_Node_Green1=2551900 //92,240,38
 }
 
 //Colors for Map Nodes

@@ -17,6 +17,9 @@ var o_morale=0; //Accuracy modifier
 var t_morale=0; //Evasion modifier
 var o_formation=0;
 var t_formation=0;
+var engagement=0; //Engagement modifier
+var ammo=1; //Ammo penalty
+var post_cap=1; //Modifier of all post-cap bonuses 
 
 //Import formation
 if(origin.is_enemy == false){
@@ -54,9 +57,32 @@ if(target.morale <= 29 && target.morale >=20){
 if(target.morale <=19){
 	t_morale=1.4;	
 }
+//Determine engagement modifier
+switch(obj_battlecontrol.battle_record[0,3]){
+	case 0: //Green T
+	engagement=1.2;
+	break;
+	case 1: //Parallel
+	engagement=1;
+	break;
+	case 2: //Head On
+	engagement=0.8;
+	break;
+	case 3: //Red T
+	engagement=0.6;
+	break;
+}
+//Determine ammo penalty
+if((origin.ammo/origin.ammo_m) > 0.5){
+	ammo=2*(origin.ammo/origin.ammo_m);
+}
 //Determine damage and armor roll
+//Pre-cap firepower
 firepower = 5+origin.base_firepower;
-firepower = firepower*obj_saver.formation[o_formation,0];
+firepower = firepower*obj_saver.formation[o_formation,0]*engagement;
+if(firepower > 180){ //Firepower Cap
+	firepower = 180 + sqrt(firepower-180);	
+}
 armor = (target.base_armor*0.7)+floor(target.base_armor*random_range(0,0.6));
 
 //Determine if attack landed
@@ -82,12 +108,10 @@ if(random_range(0,100) <= hit_rate){
 		obj_battlecontrol.battle_record[turn,4]=2;
 	}
 	else{
-		crit=false;
 		obj_battlecontrol.battle_record[turn,4]=1;
 	}
 }
 else{
-	crit=false;
 	obj_battlecontrol.battle_record[turn,4]=0;
 }
 
@@ -97,16 +121,31 @@ switch(obj_battlecontrol.battle_record[turn,4]){
 	damage=0;
 	break;
 	case 1:
-	damage=floor(firepower - armor);
+	damage=floor(((firepower*post_cap) - armor)*ammo);
 	break;
 	case 2:
-	damage=floor((firepower*1.5) - armor);
+	damage=floor(((floor(firepower*1.5)*post_cap) - armor)*ammo);
 	break;
 }
-if(damage < floor(target.currhp*0.06) ){ //Scratch damage if damage is less than 6% of target current hp
+if(damage < floor(target.currhp*0.06) && obj_battlecontrol.battle_record[turn,4] != 0){ //Scratch damage if actual damage is less than 6% of target current hp
 	damage = floor(target.currhp*random_range(0.06,0.14));
 }
-
+if(damage >= target.currhp && origin.is_enemy==true){ //Player ship protection
+	if(target.is_taiha==false){
+		if(target.morale >= 20){
+			damage=floor(target.currhp*random_range(0.5,0.79)); //Overkill protection
+		}
+		else{
+			if(target.currhp>1){
+				damage=target.currhp-1;	
+			}
+			else{
+				damage=0;
+				obj_battlecontrol.battle_record[turn,4]=0;
+			}
+		}
+	}
+}
 //Write Damage
 obj_battlecontrol.battle_record[turn,3]=damage;
 target.currhp-=damage;

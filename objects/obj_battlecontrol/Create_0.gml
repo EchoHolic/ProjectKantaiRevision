@@ -11,13 +11,28 @@ var iii=0;
 var iv=0;
 var v=0;
 var vi=0;
-//Generate Fleet
+
+//Init layers
 layer_bar=layer_create(5);
 layer_ship=layer_create(10);
 layer_bar2=layer_create(4);
+layer_particle=layer_create(6);
+//Init Particle system
+explosion_handler=part_system_create_layer(layer_particle,false);
+explosion_emitter=part_emitter_create(explosion_handler);
+explosion=part_type_create();
+part_type_sprite(explosion,spr_explosion,true,true,false);
+part_type_size(explosion,0.55,0.75,0,0);
+part_type_life(explosion,10,15);
+
+//Generate Fleet
+current_turn=1; //Current executed turn
+battle_end=false;
+m_alpha=0;
 ally_formation=map_handler.formation_selected;
 ally_fleet_size=fleet_size_get(obj_saver.sortie_fleet);
 ally_combined_fleet=false; //Placeholder
+ally_sunk_count=0;
 repeat(6){
 	ii=call_ship_uid(obj_saver.list_fleet[obj_saver.sortie_fleet,i]);
 	if(ii!=-1){
@@ -57,74 +72,75 @@ repeat(7){
 
 enemy_fleet_size=fleet_size_get_enemy(0);
 enemy_combined_fleet=false; // Placeholder
+enemy_sunk_count=0;
 
 //Spawn ship tiles
 switch(ally_fleet_size-1){
 	case 5:
-	ally_ship_tile_6=instance_create_layer(-160,120+(5*48),layer_ship,obj_ship_tile);
-	ally_ship_tile_6.fleetno=5;
-	ally_ship_tile_6.is_enemy=false;
-	with(ally_ship_tile_6){event_user(0)};
+	ally_ship_tile[5]=instance_create_layer(-200,120+(5*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[5].fleetno=5;
+	ally_ship_tile[5].is_enemy=false;
+	with(ally_ship_tile[5]){event_user(0)};
 	case 4:
-	ally_ship_tile_5=instance_create_layer(-160,120+(4*48),layer_ship,obj_ship_tile);
-	ally_ship_tile_5.fleetno=4;
-	ally_ship_tile_5.is_enemy=false;
-	with(ally_ship_tile_5){event_user(0)};
+	ally_ship_tile[4]=instance_create_layer(-200,120+(4*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[4].fleetno=4;
+	ally_ship_tile[4].is_enemy=false;
+	with(ally_ship_tile[4]){event_user(0)};
 	case 3:
-	ally_ship_tile_4=instance_create_layer(-160,120+(3*48),layer_ship,obj_ship_tile);
-	ally_ship_tile_4.fleetno=3;
-	ally_ship_tile_4.is_enemy=false;
-	with(ally_ship_tile_4){event_user(0)};
+	ally_ship_tile[3]=instance_create_layer(-200,120+(3*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[3].fleetno=3;
+	ally_ship_tile[3].is_enemy=false;
+	with(ally_ship_tile[3]){event_user(0)};
 	case 2:
-	ally_ship_tile_3=instance_create_layer(-160,120+(2*48),layer_ship,obj_ship_tile);
-	ally_ship_tile_3.fleetno=2;
-	ally_ship_tile_3.is_enemy=false;
-	with(ally_ship_tile_3){event_user(0)};
+	ally_ship_tile[2]=instance_create_layer(-200,120+(2*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[2].fleetno=2;
+	ally_ship_tile[2].is_enemy=false;
+	with(ally_ship_tile[2]){event_user(0)};
 	case 1:
-	ally_ship_tile_2=instance_create_layer(-160,120+(1*48),layer_ship,obj_ship_tile);
-	ally_ship_tile_2.fleetno=1;
-	ally_ship_tile_2.is_enemy=false;
-	with(ally_ship_tile_2){event_user(0)};
+	ally_ship_tile[1]=instance_create_layer(-200,120+(1*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[1].fleetno=1;
+	ally_ship_tile[1].is_enemy=false;
+	with(ally_ship_tile[1]){event_user(0)};
 	case 0:
-	ally_ship_tile_1=instance_create_layer(-160,120,layer_ship,obj_ship_tile);
-	ally_ship_tile_1.fleetno=0;
-	ally_ship_tile_1.is_enemy=false;
-	with(ally_ship_tile_1){event_user(0)};
+	ally_ship_tile[0]=instance_create_layer(-200,120,layer_ship,obj_ship_tile);
+	ally_ship_tile[0].fleetno=0;
+	ally_ship_tile[0].is_enemy=false;
+	with(ally_ship_tile[0]){event_user(0)};
 	break;
 }
 
 //Spawn enemy ship tiles
 switch(enemy_fleet_size-1){
 	case 5:
-	enemy_ship_tile_6=instance_create_layer(room_width+160,120+(5*48),layer_ship,obj_ship_tile);
-	enemy_ship_tile_6.fleetno=5;
-	enemy_ship_tile_6.is_enemy=true;
-	with(enemy_ship_tile_6){event_user(0)};
+	enemy_ship_tile[5]=instance_create_layer(room_width-160,120+(5*48),layer_ship,obj_ship_tile);
+	enemy_ship_tile[5].fleetno=5;
+	enemy_ship_tile[5].is_enemy=true;
+	with(enemy_ship_tile[5]){event_user(0)};
 	case 4:
-	enemy_ship_tile_5=instance_create_layer(room_width+160,120+(4*48),layer_ship,obj_ship_tile);
-	enemy_ship_tile_5.fleetno=4;
-	enemy_ship_tile_5.is_enemy=true;
-	with(enemy_ship_tile_5){event_user(0)};;
+	enemy_ship_tile[4]=instance_create_layer(room_width-160,120+(4*48),layer_ship,obj_ship_tile);
+	enemy_ship_tile[4].fleetno=4;
+	enemy_ship_tile[4].is_enemy=true;
+	with(enemy_ship_tile[4]){event_user(0)};;
 	case 3:
-	enemy_ship_tile_4=instance_create_layer(room_width+160,120+(3*48),layer_ship,obj_ship_tile);
-	enemy_ship_tile_4.fleetno=3;
-	enemy_ship_tile_4.is_enemy=true;
-	with(enemy_ship_tile_4){event_user(0)};
+	enemy_ship_tile[3]=instance_create_layer(room_width-160,120+(3*48),layer_ship,obj_ship_tile);
+	enemy_ship_tile[3].fleetno=3;
+	enemy_ship_tile[3].is_enemy=true;
+	with(enemy_ship_tile[3]){event_user(0)};
 	case 2:
-	enemy_ship_tile_3=instance_create_layer(room_width+160,120+(2*48),layer_ship,obj_ship_tile);
-	enemy_ship_tile_3.fleetno=2;
-	enemy_ship_tile_3.is_enemy=true;
-	with(enemy_ship_tile_3){event_user(0)};
+	enemy_ship_tile[2]=instance_create_layer(room_width-160,120+(2*48),layer_ship,obj_ship_tile);
+	enemy_ship_tile[2].fleetno=2;
+	enemy_ship_tile[2].is_enemy=true;
+	with(enemy_ship_tile[2]){event_user(0)};
 	case 1:
-	enemy_ship_tile_2=instance_create_layer(room_width+160,120+(1*48),layer_ship,obj_ship_tile);
-	enemy_ship_tile_2.fleetno=1;
-	enemy_ship_tile_2.is_enemy=true;
-	with(enemy_ship_tile_2){event_user(0)};
+	enemy_ship_tile[1]=instance_create_layer(room_width-160,120+(1*48),layer_ship,obj_ship_tile);
+	enemy_ship_tile[1].fleetno=1;
+	enemy_ship_tile[1].is_enemy=true;
+	with(enemy_ship_tile[1]){event_user(0)};
 	case 0:
-	enemy_ship_tile_1=instance_create_layer(room_width+160,120,layer_ship,obj_ship_tile);
-	enemy_ship_tile_1.fleetno=0;
-	enemy_ship_tile_1.is_enemy=true;
-	with(enemy_ship_tile_1){event_user(0)};
+	enemy_ship_tile[0]=instance_create_layer(room_width-160,120,layer_ship,obj_ship_tile);
+	enemy_ship_tile[0].fleetno=0;
+	enemy_ship_tile[0].is_enemy=true;
+	with(enemy_ship_tile[0]){event_user(0)};
 	break;
 }
 
@@ -132,7 +148,7 @@ switch(enemy_fleet_size-1){
 /*
 Records how the generated battle so that the elements know how to perform.
 First dimension is the turn; Second dimension is the information required for the turn.
-Each second dimension array index contains the following 5-6 variables:
+Each second dimension array index contains the following variables:
 -Phase type (Etc. 0,0)
 	Indicates whether a phase starts and ends.
 	0 - Battle Information
@@ -156,6 +172,10 @@ Each second dimension array index contains the following 5-6 variables:
 	- (3) Enemy Air Only
 	- (4) LBAS Raid
 	- (5) Night - Day
+  - Total Turns
+  - Current Map (Replay use)
+  - Current Node (Replay use)
+  - Enemy Information  (Replay use)
 - 7. Shelling
   - Origin Ship
   - Target Ship
@@ -169,11 +189,13 @@ Each second dimension array index contains the following 5-6 variables:
 	- (5)Plane Cut-In
 	- (6)ASW
 	- (7)ASW w/Plane
+  - Is_Enemy Boolean (Refers to origin)
 - 8. Closing Torpedo
   - Origin Ship
   - Target Ship
   - Damage Amount
   - Hit/Crit/Miss
+  - Is_Enemy Boolean (Refers to origin)
 - 9. Night Battle
   - Origin Ship
   - Target Ship
@@ -187,11 +209,19 @@ Each second dimension array index contains the following 5-6 variables:
 	- (5)Mixed Cut-In
 	- (4)Plane
 	- (5)Plane Cut-In
+  - Is_Enemy Boolean (Refers to origin)
+- 10. End Battle
+  - Rank
+  - Experience Gained
+- 11. Player Ship Sinking
+  - Sunk Ship
+  
+If I want replays to work I have to save current ally ship data to battle record too. (Future work)
 */
 i = 0;
 ii = 0;
 repeat (100){
-	repeat (5){
+	repeat (8){
 		battle_record[i,ii]=-1; //Replay Array
 		ii++
 	}
@@ -217,6 +247,8 @@ if(i <= 0.4 && i > 0.1){
 if(i <= 0.1){
 	battle_record[turn,3]=3; // Red T; Saiun not implemented yet	
 }
+battle_record[turn,6]=map_handler.current_node;
+battle_record[turn,7]=enemy_data;
 turn++;
 /*
 //LOS Detection Phase
@@ -344,6 +376,9 @@ ii=0;//Random number
 iii=0;//Result of check_valid_target
 v=0; //Counter for how many ships got checked
 while(i<iv){
+	if(enemy_sunk_count==enemy_fleet_size){
+		break;	
+	}
 	battle_record[turn,0]=6; //Shelling Mode
 	if(battle_order[i].currhp>1){ //If the ship is still alive
 		battle_record[turn,1]=battle_order[i]; //Origin Ship
@@ -354,8 +389,12 @@ while(i<iv){
 				iii=check_valid_target(battle_order[i], enemy_fleet[0,ii]); //Check if target is valid
 				if(iii){
 					battle_record[turn,2]=enemy_fleet[0,ii]; //Target Ship
+					battle_record[turn,5]=false;
 					calculate_shelling(battle_record[turn,1],battle_record[turn,2],turn);
 					turn++;
+					if(enemy_fleet[0,ii].currhp <= 0){ //Check if enemy ship sunk
+						enemy_sunk_count++;
+					}
 					break;
 				}
 				else{
@@ -375,8 +414,12 @@ while(i<iv){
 				iii=check_valid_target(battle_order[i], ally_fleet[0,ii]);
 				if(iii){
 					battle_record[turn,2]=ally_fleet[0,ii]; //Target Ship
+					battle_record[turn,5]=true;
 					calculate_shelling(battle_record[turn,1],battle_record[turn,2],turn);
 					turn++;
+					if(ally_fleet[0,ii].currhp <= 0){ //Check if player ship sunk
+						//Placeholder
+					}
 					break;
 				}
 				else{
@@ -401,7 +444,10 @@ while(i<iv){
 	}
 	i++;
 }
+battle_record[0,4]=turn+1;
+battle_record[turn+1,0]=10; //Battle End
+//Determine rank
+battle_record[turn+1,1]=0; //Placeholder
 
 //Display Battle
-//Spawn Ally Ships
-alarm[0]=120;
+alarm[0]=200;

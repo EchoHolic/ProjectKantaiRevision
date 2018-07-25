@@ -44,9 +44,9 @@ aircraft_m[3]=0;
 aircraft_m[4]=0;
 
 fuel=1;
-fuel_m=0;
+fuel_m=1;
 ammo=1;
-ammo_m=0;
+ammo_m=1;
 
 equip[0]=0;
 equip[1]=0;
@@ -59,7 +59,10 @@ equip_range=0;
 //For battlecontrol use
 battle_order=false;
 is_enemy=false;
+is_taiha=false;
 target_attempted=false;
+damage_dealt=0;
+fleetno=0;
 
 /*
 Range - 0 for Very Short, 1 for Short, 2 for Medium, 3 for Long, and 4 for Very Long

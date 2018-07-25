@@ -9,7 +9,7 @@ if(map_handler.move_reached==false){
 if(image_xscale<1){
 	image_xscale+=0.025;
 	image_yscale+=0.025;
-	image_alpha=(1-image_xscale)/1;
+	image_alpha=(1-image_xscale)/1*map_handler.m_alpha;
 }
 else{
 	if(alarm[0] == -1){
