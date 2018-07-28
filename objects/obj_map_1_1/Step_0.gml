@@ -6,7 +6,7 @@ else{
 	compass_wobble--;	
 }
 if(alarm[3] != -1){
-	m_alpha=alarm[3]/60;
+	m_alpha=alarm[3]/90;
 }
 if(ship_appear > 0){ //Fading in of ship CG then fading out to the left. Use ship_appear=3 for static image
 	if(ship_alpha < 1 && ship_appear == 1){

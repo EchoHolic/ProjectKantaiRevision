@@ -103,8 +103,9 @@ if(evasion >= 40){
 hit_rate=floor(clamp((accuracy-evasion)*t_morale,10,96))+1;
 
 //Check Hit/Crit/Miss
-if(random_range(0,100) <= hit_rate){
-	if(random_range(0,100) <= (1.3*sqrt(hit_rate))+1){
+var i = random_range(0,100);
+if(i <= hit_rate){
+	if(i <= (1.3*sqrt(hit_rate))+1){
 		obj_battlecontrol.battle_record[turn,4]=2;
 	}
 	else{
@@ -148,4 +149,11 @@ if(damage >= target.currhp && origin.is_enemy==true){ //Player ship protection
 }
 //Write Damage
 obj_battlecontrol.battle_record[turn,3]=damage;
+if(damage > target.currhp){
+	target.damage_taken+=target.currhp;
+}
+else{
+	target.damage_taken+=damage;	
+}
+origin.damage_dealt+=damage;
 target.currhp-=damage;

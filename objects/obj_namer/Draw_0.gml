@@ -1,7 +1,7 @@
 //Background blurring
 var bsize = shader_get_uniform(sd_blur,"size");
-shader_set(sd_blur)
-shader_set_uniform_f(bsize,960,576,4*((24-alarm[0])/24))//size of background
+shader_set(sd_blur);
+shader_set_uniform_f(bsize,960,576,4*((24-alarm[0])/24));//size of background
 if(surface_exists(background)){
 	surface_set_target(background);
 	draw_surface(application_surface,0,0);

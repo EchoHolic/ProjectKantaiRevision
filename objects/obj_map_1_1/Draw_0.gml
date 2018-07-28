@@ -42,7 +42,7 @@ if(room!=rm_battle){
 			draw_circle(node_pos_x[i],node_pos_y[i],9,false);
 			switch(i){
 				case 1:
-				draw_sprite(spr_map_1_1_1,0,216,207);
+				draw_sprite(spr_map_1_1_1,0,217,208);
 				break;
 			}
 		}

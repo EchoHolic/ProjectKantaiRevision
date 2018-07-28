@@ -57,6 +57,7 @@ for(var i=0;i<array_length_1d(obj_battlecontrol.enemy_fleet);i++){
 		obj_battlecontrol.enemy_fleet[i].ammo_m=1;
 		
 		obj_battlecontrol.enemy_fleet[i].is_enemy=true;
+		obj_battlecontrol.enemy_fleet[i].hp_start=obj_battlecontrol.enemy_fleet[i].currhp;
 		//Equipment still does not work
 		obj_battlecontrol.enemy_fleet[i].equip[0]=-1;
 		obj_battlecontrol.enemy_fleet[i].equip[1]=-1;

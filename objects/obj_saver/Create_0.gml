@@ -2,6 +2,8 @@
 if(display_aa >= 6){
 	display_reset(4,true);
 }
+//Randomize Seed
+randomize();
 
 //Proficiency Tables. Not accurate to the original.
 skill_fighter[0]=0;

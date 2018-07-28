@@ -13,6 +13,13 @@ damage_status=0;
 action_type=0;
 action_fire=0;
 action_damage=0;
+var i=0;
+repeat(4){
+	action_number[i]=0;//For damage display
+	i++;
+}
+action_number_d=0; //If number is already spawned
+action_number_l=0;
 /*Action Types
 0 - Firing shot
 1 - Receiving shot (miss)

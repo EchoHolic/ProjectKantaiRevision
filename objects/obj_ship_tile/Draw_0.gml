@@ -6,6 +6,9 @@ else{
 	draw_sprite_ext(stile_frame,0,x+160,y-3,-1,1,0,c_white,image_alpha);
 }
 draw_self();
+if(damage_status>0){
+	draw_sprite_ext(spr_damage_badge,damage_status-1,x+113,y,0.55,0.55,0,c_white,image_alpha);
+}
 
 //Draw HP
 var i=merge_color(color.c_Node_Green1,color.c_Node_Red2,1-(currhp/maxhp));

@@ -1,4 +1,5 @@
 if(current_turn<=battle_record[0,4]){
+	current_phase=battle_record[current_turn,0];
 	switch(battle_record[current_turn,0]){
 		case 6: //Shelling
 		var ally=ally_ship_tile[battle_record[current_turn,1].fleetno];
@@ -37,11 +38,11 @@ if(current_turn<=battle_record[0,4]){
 				}
 			}
 		}
+		alarm[0]=100;
 		break;
 		case 10: //Battle End
 		alarm[2]=60;
 		break;
 	}
 	current_turn++;
-	alarm[0]=120;
 }

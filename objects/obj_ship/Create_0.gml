@@ -61,7 +61,9 @@ battle_order=false;
 is_enemy=false;
 is_taiha=false;
 target_attempted=false;
+hp_start=0;
 damage_dealt=0;
+damage_taken=0;
 fleetno=0;
 
 /*

@@ -11,10 +11,12 @@ var iii=0;
 var iv=0;
 var v=0;
 var vi=0;
+var vii=0;
 
 //Init layers
 layer_bar=layer_create(5);
 layer_ship=layer_create(10);
+layer_damage=layer_create(9);
 layer_bar2=layer_create(4);
 layer_particle=layer_create(6);
 //Init Particle system
@@ -25,10 +27,15 @@ part_type_sprite(explosion,spr_explosion,true,true,false);
 part_type_size(explosion,0.55,0.75,0,0);
 part_type_life(explosion,10,15);
 
-//Generate Fleet
-current_turn=1; //Current executed turn
-battle_end=false;
+//Draw and Animation variables
 m_alpha=0;
+r_gear=0; //For rotating the gear
+current_turn=1; //Current executed turn
+current_phase=0; // Current phase
+background=surface_create(960,576);
+
+//Generate Fleet
+battle_end=false;
 ally_formation=map_handler.formation_selected;
 ally_fleet_size=fleet_size_get(obj_saver.sortie_fleet);
 ally_combined_fleet=false; //Placeholder
@@ -37,6 +44,7 @@ repeat(6){
 	ii=call_ship_uid(obj_saver.list_fleet[obj_saver.sortie_fleet,i]);
 	if(ii!=-1){
 		ally_fleet[0,i]=obj_saver.list_ship[call_ship_uid(obj_saver.list_fleet[obj_saver.sortie_fleet,i])];
+		ally_fleet[0,i].hp_start=ally_fleet[0,i].currhp;
 	}
 	else{
 		ally_fleet[0,i]=-1;	
@@ -77,32 +85,32 @@ enemy_sunk_count=0;
 //Spawn ship tiles
 switch(ally_fleet_size-1){
 	case 5:
-	ally_ship_tile[5]=instance_create_layer(-200,120+(5*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[5]=instance_create_layer(-220,120+(5*48),layer_ship,obj_ship_tile);
 	ally_ship_tile[5].fleetno=5;
 	ally_ship_tile[5].is_enemy=false;
 	with(ally_ship_tile[5]){event_user(0)};
 	case 4:
-	ally_ship_tile[4]=instance_create_layer(-200,120+(4*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[4]=instance_create_layer(-220,120+(4*48),layer_ship,obj_ship_tile);
 	ally_ship_tile[4].fleetno=4;
 	ally_ship_tile[4].is_enemy=false;
 	with(ally_ship_tile[4]){event_user(0)};
 	case 3:
-	ally_ship_tile[3]=instance_create_layer(-200,120+(3*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[3]=instance_create_layer(-220,120+(3*48),layer_ship,obj_ship_tile);
 	ally_ship_tile[3].fleetno=3;
 	ally_ship_tile[3].is_enemy=false;
 	with(ally_ship_tile[3]){event_user(0)};
 	case 2:
-	ally_ship_tile[2]=instance_create_layer(-200,120+(2*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[2]=instance_create_layer(-220,120+(2*48),layer_ship,obj_ship_tile);
 	ally_ship_tile[2].fleetno=2;
 	ally_ship_tile[2].is_enemy=false;
 	with(ally_ship_tile[2]){event_user(0)};
 	case 1:
-	ally_ship_tile[1]=instance_create_layer(-200,120+(1*48),layer_ship,obj_ship_tile);
+	ally_ship_tile[1]=instance_create_layer(-220,120+(1*48),layer_ship,obj_ship_tile);
 	ally_ship_tile[1].fleetno=1;
 	ally_ship_tile[1].is_enemy=false;
 	with(ally_ship_tile[1]){event_user(0)};
 	case 0:
-	ally_ship_tile[0]=instance_create_layer(-200,120,layer_ship,obj_ship_tile);
+	ally_ship_tile[0]=instance_create_layer(-220,120,layer_ship,obj_ship_tile);
 	ally_ship_tile[0].fleetno=0;
 	ally_ship_tile[0].is_enemy=false;
 	with(ally_ship_tile[0]){event_user(0)};
@@ -444,10 +452,76 @@ while(i<iv){
 	}
 	i++;
 }
-battle_record[0,4]=turn+1;
-battle_record[turn+1,0]=10; //Battle End
+battle_record[0,4]=turn;
+battle_record[turn,0]=10; //Battle End
+
 //Determine rank
-battle_record[turn+1,1]=0; //Placeholder
+i=0;
+ii=0; //Enemy ships sunk
+iii=0; //Enemy damage taken
+iv=0; //Enemy total hp
+v=0; //Ally ships sunk
+vi=0; //Ally Damage taken
+vii=0; //Ally total hp
+for(i=0; i<enemy_fleet_size;i++){
+	if(enemy_fleet[i].currhp<=0){
+		ii++;
+	}
+	iii+=enemy_fleet[i].damage_taken;
+	iv+=enemy_fleet[i].hp_start;
+}
+for(i=0; i<ally_fleet_size;i++){
+	if(ally_fleet[i].currhp<=0){
+		v++;
+	}
+	vi+=ally_fleet[i].damage_taken;
+	vii+=ally_fleet[i].hp_start;
+}
+if(ii >= round(enemy_fleet_size*0.6) && v==0){//If at least half are sunk
+	if(ii == enemy_fleet_size){ //If all are sunk
+		if(vi == 0){
+			battle_record[turn,1]=0; //Perfect S-Rank
+		}
+		else{
+			battle_record[turn,1]=1; //S-Rank
+		}
+		if(v > 0){ //If an ally is sunk
+			battle_record[turn,1]=3; //B-Rank
+		}
+	}
+	else{
+		battle_record[turn,1]=2; //A-Rank	
+	}
+}
+else{
+	if(enemy_fleet[0].currhp <= 0 && ii > v){ //If enemy flagship is sunk and enemy sunk is more than ally sunk
+		if(v == 0){ //If no allies are sunk
+			battle_record[turn,1]=3; //B-Rank
+		}
+		else{
+			battle_record[turn,1]=4; //C-Rank	
+		}
+	}
+	else{
+		if(floor(iii/iv)*2.5 > floor(vi/vii)){ //If enemy damage taken exceeds 2.5x of ally's
+			battle_record[turn,1]=3; //B-Rank
+		}
+		else{
+			if(floor(iii/iv) > floor(vi/vii*0.9)){ //If enemy damage taken exceeds ally
+				battle_record[turn,1]=4; //C-Rank
+			}
+			else{
+				if(ally_fleet_size>2 && v>=ally_fleet_size-1){ //If you pulled off a Nishimura and only your flagship survived
+					battle_record[turn,1]=6; //E-Rank	
+				}
+				else{
+					battle_record[turn,1]=5; //D-Rank	
+				}
+			}
+		}
+	}
+}
+
 
 //Display Battle
 alarm[0]=200;
